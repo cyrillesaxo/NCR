@@ -1,5 +1,5 @@
 Help
-The project is a microservice architecture.
+The project is built on a microservice architecture style.
 
 In order to run the project
 you should run on the other the following application
