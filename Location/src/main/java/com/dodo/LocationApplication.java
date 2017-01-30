@@ -1,6 +1,7 @@
 package com.dodo;
 
 import org.apache.camel.component.servlet.CamelHttpTransportServlet;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -11,6 +12,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
+import org.slf4j.*;
 
 @SpringBootApplication
 @Configuration
@@ -18,6 +20,7 @@ import org.springframework.core.env.Environment;
 public class LocationApplication implements ApplicationRunner  {
 	private static final String CAMEL_URL_MAPPING = "/Location/*";
 	private static final String CAMEL_SERVLET_NAME = "CamelServlet";
+	private static final Logger logger = LoggerFactory.getLogger(LocationApplication.class);
 	
 	public static void main(String[] args) {
 		SpringApplication.run(LocationApplication.class, args);
@@ -25,7 +28,7 @@ public class LocationApplication implements ApplicationRunner  {
 	
 	@Autowired
 	void setEnvironment(Environment e){
-		System.out.println("  #### env:"+e.getProperty("broker.url"));
+		logger.info("  #### env:"+e.getProperty("broker.url"));
 	}
 
 	@Override

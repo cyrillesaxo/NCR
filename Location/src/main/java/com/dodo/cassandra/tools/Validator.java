@@ -22,8 +22,8 @@ public class Validator {
 		if(null == latitude || "".equals(latitude.trim()) || !isNumeric(latitude.trim())) return false;
 		if(null == longitude || "".equals(longitude.trim()) || !isNumeric(longitude.trim())) return false;
 		
-		System.out.println(" str --GeoApi.getAddress lat:"+latitude+" -  lng:"+longitude);
-		System.out.println("numb -- GeoApi.getAddress lat:"+new Double(latitude)+" -  lng:"+new Double(longitude));
+		logger.info(" str --GeoApi.getAddress lat:"+latitude+" -  lng:"+longitude);
+		logger.info("numb -- GeoApi.getAddress lat:"+new Double(latitude)+" -  lng:"+new Double(longitude));
 		if(validateFormat(latitude.trim()+","+longitude.trim())) return false;
 		
 		exchange.getIn().setBody(exchange);
@@ -62,7 +62,7 @@ public class Validator {
 	    	  logger.info("Found value: " + m.group(0) );
 	    	  logger.info("Found value: " + m.group(1) );
 	      }else {
-	         System.out.println("NO MATCH");
+	         logger.info("NO MATCH");
 	         noMatch = true;
 	      }
 	      return false; 

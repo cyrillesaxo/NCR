@@ -1,0 +1,11 @@
+Help
+The project is a microservice architecture.
+
+In order to run the project
+you should run on the other the following application
+
+1)  configServer  (it's the app that is getting the property file from  https://github.com/cyrillesaxo/properties.git)
+2)  eurekaServer (http://localhost:8761/)
+3)  hystrixServer  (http://localhost:9023/)
+4)  location (http://localhost:8080/docs/index.html it the swagger ui )  // the microservice
+

@@ -3,8 +3,7 @@ package com.dodo.cassandra.tools;
 
 import java.util.concurrent.TimeUnit;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.slf4j.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
@@ -16,13 +15,14 @@ import com.google.maps.model.LatLng;
 
 @Component
 public class GeoApi {
+	
 	  private static final Logger logger = LoggerFactory.getLogger(GeoApi.class);
 	  private GeoApiContext context;
 	  private Environment env;
 		
 		@Autowired
 		void setEnvironment(Environment e){
-			System.out.println("  #### google.apiKey:"+e.getProperty("google.apiKey"));
+			logger.info("  #### google.apiKey:"+e.getProperty("google.apiKey"));
 			env = e;
 			
 		    GeoApiContext context = new GeoApiContext()
